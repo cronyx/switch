@@ -1,12 +1,12 @@
 #!/bin/sh
 
 # led gpio same as switch.ko module option
-led="56"
+led="57"
 
 log="/tmp/qrdata.log"
 img="/tmp/img.jpg"
 
-touch ${log}
+rm -f ${log}
 
 while ! [ -s ${log} ]; do
   curl -s -o ${img} http://127.0.0.1/image.jpg ; qrscan -p ${img} > ${log}
